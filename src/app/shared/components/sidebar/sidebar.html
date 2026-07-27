@@ -1,0 +1,236 @@
+<!-- <div class="sidebar">
+
+    <div class="logo">
+
+        CrackIT
+
+    </div>
+
+    <nav>
+
+        <a routerLink="/">
+            Dashboard
+        </a>
+
+        <a>
+            Angular
+        </a>
+
+        <a>
+            JavaScript
+        </a>
+
+        <a>
+            TypeScript
+        </a>
+
+        <a>
+            HTML
+        </a>
+
+        <a>
+            CSS
+        </a>
+
+        <a>
+            RxJS
+        </a>
+
+        <a>
+            NgRx
+        </a>
+
+        <a>
+            Signals
+        </a>
+
+    </nav>
+
+</div> -->
+
+<!-- <aside
+
+
+class="sidebar"
+[style.width]="ui.sidebarWidth()">
+
+<div class="logo">
+
+    CrackIT
+
+</div>
+
+<nav>
+
+<a
+routerLink="/"
+routerLinkActive="active">
+
+🏠 Dashboard
+
+</a>
+
+<a>
+
+🅰 Angular
+
+</a>
+
+<a>
+
+🟨 JavaScript
+
+</a>
+
+<a>
+
+🟦 TypeScript
+
+</a>
+
+<a>
+
+🟩 Node
+
+</a>
+
+<a>
+
+🌐 HTML
+
+</a>
+
+<a>
+
+🎨 CSS
+
+</a>
+
+<a>
+
+⚡ RxJS
+
+</a>
+
+<a>
+
+📦 NgRx
+
+</a>
+
+<a>
+
+🧠 Signals
+
+</a>
+
+</nav>
+</aside> -->
+
+
+<aside
+  class="sidebar"
+  [style.width]="ui.sidebarWidth()">
+
+  <div class="logo">
+    CrackIT
+  </div>
+
+  <nav>
+
+    <a
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }">
+      🏠 Dashboard
+    </a>
+
+    <a
+      routerLink="/subjects/angular"
+      routerLinkActive="active">
+      🅰 Angular
+    </a>
+
+    <a
+      routerLink="/subjects/javascript"
+      routerLinkActive="active">
+      🟨 JavaScript
+    </a>
+
+    <a
+      routerLink="/subjects/typescript"
+      routerLinkActive="active">
+      🟦 TypeScript
+    </a>
+
+    <a
+      routerLink="/subjects/nodejs"
+      routerLinkActive="active">
+      🟩 Node.js
+    </a>
+
+    <a
+      routerLink="/subjects/html"
+      routerLinkActive="active">
+      🌐 HTML
+    </a>
+
+    <a
+      routerLink="/subjects/css"
+      routerLinkActive="active">
+      🎨 CSS
+    </a>
+
+    <a
+      routerLink="/subjects/rxjs"
+      routerLinkActive="active">
+      ⚡ RxJS
+    </a>
+
+    <a
+      routerLink="/subjects/ngrx"
+      routerLinkActive="active">
+      📦 NgRx
+    </a>
+
+    <a
+      routerLink="/subjects/signals"
+      routerLinkActive="active">
+      🧠 Signals
+    </a>
+
+    <a
+      routerLink="/interview"
+      routerLinkActive="active">
+      🎯 Interview
+    </a>
+
+    <a
+      routerLink="/mcq"
+      routerLinkActive="active">
+      ❓ MCQ Practice
+    </a>
+
+    <a
+      routerLink="/progress"
+      routerLinkActive="active">
+      📈 Progress
+    </a>
+
+  </nav>
+
+</aside>
+
+<!-- @for(item of menuItems; track item.route){
+
+<a
+    [routerLink]="item.route"
+    routerLinkActive="active">
+
+    <i [class]="item.icon"></i>
+
+    {{item.label}}
+
+</a>
+
+} -->
