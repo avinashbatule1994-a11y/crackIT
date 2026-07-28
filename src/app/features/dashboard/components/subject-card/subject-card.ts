@@ -7,11 +7,13 @@ import { TagModule } from 'primeng/tag';
 import { AvatarModule } from 'primeng/avatar';
 import { BadgeModule } from 'primeng/badge';
 import { InputTextModule } from 'primeng/inputtext';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-subject-card',
   standalone: true,
   imports: [
+    CommonModule,
     ProgressBarModule,
     CardModule,
     ButtonModule,

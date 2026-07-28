@@ -1,69 +1,43 @@
-<!-- <div
-class="card"
-[style.border-color]="subject().color">
 
-<div class="icon">
-
-{{subject().icon}}
-
-</div>
-
-<h2>
-
-{{subject().title}}
-
-</h2>
-
-<p>
-
-{{subject().description}}
-
-</p>
-
-<span>
-
-{{subject().topics}} Topics
-
-</span>
-
-</div> -->
 
 <p-card class="subject-card">
 
-<div class="header">
+    <div class="header">
 
-<i
-[class]="subject().icon"
-[style.color]="subject().color">
-</i>
+        <i [class]="subject().icon" [style.color]="subject().color">
+        </i>
 
-<span>
 
-{{subject().title}}
+        <span>
 
-</span>
+            {{subject().title}}
 
-</div>
+        </span>
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="continue-button">
+            <button pButton label="Continue">
+            </button>
+        </span>
 
-<p>
+    </div>
 
-{{subject().topics}} Topics
+    <p>
 
-</p>
+        {{subject().topics}} Topics
+        &nbsp;|&nbsp;
 
-<p>
+        {{subject().questions}} Questions
 
-{{subject().questions}} Questions
+    </p>
+    <p>
 
-</p>
+        {{subject().description}}
 
-<p-progressBar
-[value]="subject().progress">
-</p-progressBar>
+    </p>
 
-<button
-pButton
-label="Continue">
-</button>
+
+
+    <p-progressBar [value]="subject().progress">
+    </p-progressBar>
 
 </p-card>
