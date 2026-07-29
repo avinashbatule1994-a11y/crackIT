@@ -18,7 +18,7 @@ import { CommonModule } from '@angular/common';
     ProgressCardComponent,
     ChallengeCard,
     FeaturedQuestions,
-    SubjectCard
+    // SubjectCard
 ],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss'

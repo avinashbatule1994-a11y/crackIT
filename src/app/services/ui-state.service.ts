@@ -5,7 +5,7 @@ import { Injectable, computed, signal } from '@angular/core';
 })
 export class UiStateService {
 
-  readonly sidebarCollapsed = signal(false);
+  readonly sidebarCollapsed = signal(true);
 
   readonly darkMode = signal(true);
 
@@ -16,7 +16,7 @@ export class UiStateService {
   readonly isMobileMenuOpen = signal(false);
 
   readonly sidebarWidth = computed(() =>
-    this.sidebarCollapsed() ? '80px' : '260px'
+    this.sidebarCollapsed() ? '0' : '260px'
   );
 
   toggleSidebar() {

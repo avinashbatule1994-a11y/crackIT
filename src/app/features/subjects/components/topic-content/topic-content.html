@@ -1,1 +1,8 @@
-<p>topic-content works!</p>
+<h2>Coming Soon</h2>
+
+<app-markdown-viewer *ngIf="selectedTab() === 'theory'"></app-markdown-viewer>
+<app-code-editor *ngIf="selectedTab() === 'examples'"></app-code-editor>
+<app-video-list *ngIf="selectedTab() === 'videos'"></app-video-list>
+<app-interview-list *ngIf="selectedTab() === 'interview'"></app-interview-list>
+<app-scenario-list *ngIf="selectedTab() === 'scenario'"></app-scenario-list>
+<app-mcq-list *ngIf="selectedTab() === 'mcq'"></app-mcq-list>

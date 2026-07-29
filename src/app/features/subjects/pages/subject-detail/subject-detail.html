@@ -1,1 +1,59 @@
-<p>subject-detail works!</p>
+<div class="main-container">
+    <div class="subject-header">
+  <h1>Angular</h1>
+
+  <p>
+    Learn Angular from beginner to expert.
+  </p>
+</div>
+
+<!-- Statistics -->
+<div class="stats">
+
+  <div class="card">
+    <h2>{{ topics().length }}</h2>
+    <p>Topics</p>
+  </div>
+
+  <div class="card">
+    <h2>45</h2>
+    <p>Examples</p>
+  </div>
+
+  <div class="card">
+    <h2>18</h2>
+    <p>Practice</p>
+  </div>
+
+  <div class="card">
+    <h2>8</h2>
+    <p>Interview</p>
+  </div>
+
+</div>
+
+<!-- Topics -->
+<div class="topics">
+
+  @for (topic of topics(); track topic.id) {
+
+    <div class="topic-card" (click)="openTopic(topic)">
+
+      <div class="topic-content">
+
+        <h3>{{ topic.title }}</h3>
+
+        <p>{{ topic.description }}</p>
+
+      </div>
+
+      <div class="topic-action">
+        →
+      </div>
+
+    </div>
+
+  }
+
+</div>
+</div>

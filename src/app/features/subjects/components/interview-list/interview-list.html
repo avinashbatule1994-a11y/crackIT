@@ -1,1 +1,19 @@
-<p>interview-list works!</p>
+@for(question of questions();track $index){
+
+<div class="question">
+
+<h3>
+
+{{question.question}}
+
+</h3>
+
+<p>
+
+{{question.answer}}
+
+</p>
+
+</div>
+
+}

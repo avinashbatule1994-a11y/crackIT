@@ -1,9 +1,13 @@
-import { Component } from '@angular/core';
+import { Component,input } from '@angular/core';
 
 @Component({
-  selector: 'app-interview-list',
-  imports: [],
-  templateUrl: './interview-list.html',
-  styleUrl: './interview-list.scss',
+selector:'app-interview-list',
+standalone:true,
+templateUrl:'./interview-list.html',
+styleUrl:'./interview-list.scss'
 })
-export class InterviewList {}
+export class InterviewList{
+
+questions=input<any[]>([]);
+
+}

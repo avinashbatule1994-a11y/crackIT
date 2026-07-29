@@ -1,1 +1,37 @@
-<p>code-editor works!</p>
+<!-- @for(example of examples();track $index){
+
+<div class="example">
+
+<h3>{{example.title}}</h3>
+
+<pre>{{example.code}}</pre>
+
+</div>
+
+} -->
+
+<h2>Practice</h2>
+
+<textarea
+
+[(ngModel)]="code"
+
+rows="20">
+
+</textarea>
+
+<div class="actions">
+
+<button (click)="copy()">
+
+Copy
+
+</button>
+
+<button (click)="reset()">
+
+Reset
+
+</button>
+
+</div>

@@ -7,12 +7,14 @@ import Aura from '@primeuix/themes/aura';
 import { routes } from './app.routes';
 import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideAnimations(),
+    provideHttpClient(),
     provideCharts(withDefaultRegisterables()),
     providePrimeNG({
       theme: {

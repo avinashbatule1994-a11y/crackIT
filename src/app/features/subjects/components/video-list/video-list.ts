@@ -1,9 +1,13 @@
-import { Component } from '@angular/core';
+import { Component,input } from '@angular/core';
 
 @Component({
-  selector: 'app-video-list',
-  imports: [],
-  templateUrl: './video-list.html',
-  styleUrl: './video-list.scss',
+selector:'app-video-list',
+standalone:true,
+templateUrl:'./video-list.html',
+styleUrl:'./video-list.scss'
 })
-export class VideoList {}
+export class VideoList{
+
+videos=input<any[]>([]);
+
+}
