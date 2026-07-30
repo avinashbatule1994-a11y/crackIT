@@ -2,66 +2,57 @@
 //   AfterViewInit,
 //   Component,
 //   ElementRef,
-//   ViewChild
+//   ViewChild,
+//   input,
+//   output
 // } from '@angular/core';
 
 // import * as monaco from 'monaco-editor';
 
 // @Component({
-//   selector:'app-monaco-editor',
-//   standalone:true,
-//   templateUrl:'./monaco-editor.html',
-//   styleUrl:'./monaco-editor.scss'
+//   selector: 'app-monaco-editor',
+//   standalone: true,
+//   templateUrl: './monaco-editor.html',
+//   styleUrl: './monaco-editor.scss'
 // })
-// export class MonacoEditor implements AfterViewInit{
+// export class MonacoEditorComponent implements AfterViewInit {
 
-//   @ViewChild('editor',{static:true})
+//   @ViewChild('editorContainer', { static: true })
+//   editorContainer!: ElementRef<HTMLDivElement>;
 
-//   editorElement!:ElementRef;
+//   code = input<string>('');
 
-//   editor!:monaco.editor.IStandaloneCodeEditor;
+//   language = input<string>('javascript');
 
-//   ngAfterViewInit():void{
+//   codeChange = output<string>();
 
-//     this.editor=monaco.editor.create(
+//   private editor!: monaco.editor.IStandaloneCodeEditor;
 
-//       this.editorElement.nativeElement,
+//   ngAfterViewInit() {
 
+//     this.editor = monaco.editor.create(
+//       this.editorContainer.nativeElement,
 //       {
-
-//         value:
-
-// `function greet(){
-
-// console.log("Hello CrackIT");
-
-// }
-
-// greet();`,
-
-// language:'typescript',
-
-// theme:'vs-dark',
-
-// automaticLayout:true,
-
-// minimap:{
-// enabled:false
-// }
-
+//         value: this.code(),
+//         language: this.language(),
+//         theme: 'vs-dark',
+//         automaticLayout: true
 //       }
-
 //     );
 
+//     this.editor.onDidChangeModelContent(() => {
+//       this.codeChange.emit(this.editor.getValue());
+//     });
 //   }
-
 // }
 
 import {
   AfterViewInit,
   Component,
   ElementRef,
-  ViewChild
+  ViewChild,
+  input,
+  output
 } from '@angular/core';
 
 import * as monaco from 'monaco-editor';
@@ -75,55 +66,57 @@ import * as monaco from 'monaco-editor';
 export class MonacoEditorComponent implements AfterViewInit {
 
   @ViewChild('editor', { static: true })
-  editorRef!: ElementRef<HTMLDivElement>;
+  editorElement!: ElementRef<HTMLDivElement>;
 
-  ngAfterViewInit() {
+  code = input('');
 
-    self.MonacoEnvironment = {
+  language = input('javascript');
 
-      getWorker(_, label) {
+  codeChange = output<string>();
 
-        if (label === 'typescript' || label === 'javascript') {
+  private editor!: monaco.editor.IStandaloneCodeEditor;
 
-          return new Worker(
-            new URL('../../../../ts.worker', import.meta.url),
-            { type: 'module' }
-          );
+  ngAfterViewInit(): void {
 
-        }
-
-        return new Worker(
-          new URL('../../../../editor.worker', import.meta.url),
-          { type: 'module' }
-        );
-
+    this.editor = monaco.editor.create(
+      this.editorElement.nativeElement,
+      {
+        value: this.code(),
+        language: this.language(),
+        theme: 'vs-dark',
+        automaticLayout: true,
+        minimap: {
+          enabled: false
+        },
+        fontSize: 15
       }
+    );
 
-    };
+    this.editor.onDidChangeModelContent(() => {
 
-    monaco.editor.create(this.editorRef.nativeElement, {
-
-      value: `function greet(){
-
-console.log("Welcome To CrackIT");
-
-}
-
-greet();`,
-
-      language: 'typescript',
-
-      theme: 'vs-dark',
-
-      automaticLayout: true,
-
-      minimap: {
-
-        enabled: false
-
-      }
+      this.codeChange.emit(
+        this.editor.getValue()
+      );
 
     });
+
+  }
+
+  copy() {
+
+    navigator.clipboard.writeText(
+
+      this.editor.getValue()
+
+    );
+
+  }
+
+  reset() {
+
+    this.editor.setValue('');
+
+    this.codeChange.emit('');
 
   }
 

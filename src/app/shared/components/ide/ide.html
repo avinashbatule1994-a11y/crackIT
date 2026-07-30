@@ -1,0 +1,109 @@
+<!-- <div class="ide">
+
+  <app-editor-toolbar></app-editor-toolbar>
+
+  <div class="workspace">
+
+    <div class="editor">
+
+      <app-monaco-editor></app-monaco-editor>
+
+    </div>
+
+    <div class="right-panel">
+
+      <app-preview-panel></app-preview-panel>
+
+      <app-console-panel></app-console-panel>
+
+    </div>
+
+  </div>
+
+</div> -->
+<!-- <div class="editor-tabs">
+
+    <button>HTML</button>
+
+    <button>CSS</button>
+
+    <button>JavaScript</button>
+
+</div>
+
+<div class="editor">
+
+    <app-monaco-editor></app-monaco-editor>
+
+</div> -->
+<div class="toolbar">
+
+    <button (click)="activeTab.set('html')">
+        HTML
+    </button>
+
+    <button (click)="activeTab.set('css')">
+        CSS
+    </button>
+
+    <button (click)="activeTab.set('javascript')">
+        JavaScript
+    </button>
+
+</div>
+
+<div class="workspace">
+
+    <div class="editor">
+
+        @switch(activeTab()){
+
+        @case('html'){
+
+        <app-monaco-editor [code]="html()" language="html" (codeChange)="html.set($event)">
+        </app-monaco-editor>
+
+        }
+
+        @case('css'){
+
+        <app-monaco-editor [code]="css()" language="css" (codeChange)="css.set($event)">
+        </app-monaco-editor>
+
+        }
+
+        @case('javascript'){
+
+        <app-monaco-editor [code]="javascript()" language="javascript" (codeChange)="javascript.set($event)">
+        </app-monaco-editor>
+
+        }
+
+        }
+
+    </div>
+
+    <div class="preview">
+
+        <app-preview [html]="html()" [css]="css()" [javascript]="javascript()">
+        </app-preview>
+
+    </div>
+
+    <div class="console">
+
+        <!-- <app-console
+            (clear)="clearConsole()"
+            [output]="consoleOutput()">
+        </app-console>  
+        <app-editor-toolbar
+  (copy)="copyCode()"
+  (reset)="resetCode()"
+  (run)="runCode()">
+</app-editor-toolbar>
+
+<app-monaco-editor
+  [code]="currentCode()"
+  (codeChange)="updateCode($event)">
+</app-monaco-editor> -->
+    </div>

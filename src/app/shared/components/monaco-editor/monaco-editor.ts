@@ -1,19 +1,12 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-monaco-editor',
-//   imports: [],
-//   templateUrl: './monaco-editor.html',
-//   styleUrl: './monaco-editor.scss',
-// })
-// export class MonacoEditor {}
 import {
   AfterViewInit,
   Component,
   ElementRef,
   ViewChild,
-  signal
+  input,
+  output
 } from '@angular/core';
+import * as monaco from 'monaco-editor';
 
 @Component({
   selector: 'app-monaco-editor',
@@ -26,36 +19,48 @@ export class MonacoEditorComponent implements AfterViewInit {
   @ViewChild('editor')
   editorElement!: ElementRef<HTMLDivElement>;
 
-  code = signal(`function greet(){
 
-console.log("Welcome To CrackIT");
+  private initialCode = '';
+  // Input
+  code = input<string>('');
+  private editor!: monaco.editor.IStandaloneCodeEditor;
 
-}
+  // Input
+  language = input<'html' | 'css' | 'javascript'>('javascript');
 
-greet();`);
+  // Output
+  codeChange = output<string>();
 
   ngAfterViewInit() {
 
-    // Monaco initialization here
+    // initialize Monaco here
 
   }
-
-  copy() {
-
-    navigator.clipboard.writeText(this.code());
-
+  async copy() {
+    try {
+      await navigator.clipboard.writeText(this.editor.getValue());
+      console.log('Copied!');
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
   }
 
+  // copy() {
+
+  //   const code = this.editor.getValue();
+
+  //   navigator.clipboard.writeText(code);
+
+  //   console.log('Code copied!');
+  // }
   reset() {
+    this.codeChange.emit(this.initialCode);
 
-    this.code.set(`function greet(){
-
-console.log("Welcome To CrackIT");
-
-}
-
-greet();`);
-
+    // If Monaco editor instance exists:
+    // this.editor.setValue(this.initialCode);
+  }
+  onEditorChange(value: string) {
+    this.codeChange.emit(value);
   }
 
 }

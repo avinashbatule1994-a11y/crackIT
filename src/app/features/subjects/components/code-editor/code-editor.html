@@ -1,37 +1,83 @@
-<!-- @for(example of examples();track $index){
+<!-- <div class="editor-container">
 
-<div class="example">
+  <div class="toolbar">
 
-<h3>{{example.title}}</h3>
+    <div class="left">
 
-<pre>{{example.code}}</pre>
+      <button class="primary">
+        ▶ Run
+      </button>
 
-</div>
+      <button>
+        ↺ Reset
+      </button>
 
-} -->
+      <button>
+        📋 Copy
+      </button>
 
-<h2>Practice</h2>
+    </div>
 
-<textarea
+    <div class="right">
 
-[(ngModel)]="code"
+      <button>
+        🎨 Format
+      </button>
 
-rows="20">
+      <button>
+        🌙 Theme
+      </button>
 
-</textarea>
+      <button>
+        ⛶ Fullscreen
+      </button>
 
-<div class="actions">
+    </div>
 
-<button (click)="copy()">
+  </div>
 
-Copy
+  <app-monaco-editor
+      [code]="editorCode()"
+      [language]="'javascript'"
+      (codeChange)="editorCode.set($event)">
+  </app-monaco-editor>
 
-</button>
+  <app-output-panel
+      [output]="output()">
+  </app-output-panel>
 
-<button (click)="reset()">
+</div> -->
 
-Reset
+<div class="editor-container">
 
-</button>
+  <div class="toolbar">
+
+    <div class="left">
+
+      <button class="primary" (click)="runCode()">
+        ▶ Run
+      </button>
+
+      <button (click)="resetCode()">
+        ↺ Reset
+      </button>
+
+      <button (click)="copyCode()">
+        📋 Copy
+      </button>
+
+    </div>
+
+  </div>
+
+  <app-monaco-editor
+      [code]="editorCode()"
+      [language]="'javascript'"
+      (codeChange)="editorCode.set($event)">
+  </app-monaco-editor>
+
+  <app-output-panel
+      [output]="output()">
+  </app-output-panel>
 
 </div>

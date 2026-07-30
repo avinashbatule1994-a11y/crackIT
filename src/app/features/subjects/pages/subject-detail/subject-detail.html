@@ -43,50 +43,40 @@
 
     @for(topic of topics(); track topic.id){
 
-    <div
-      class="topic-card"
-      (click)="openTopic(topic)">
+ <div class="topic-card" (click)="openTopic(topic)">
 
-      <div class="topic-left">
+  <div class="top-row">
 
-        <div class="topic-icon">
-          📘
-        </div>
-
-        <div>
-
-          <h3>{{topic.title}}</h3>
-
-          <p>{{topic.description}}</p>
-
-          <div class="meta">
-            <span>⏱ {{topic.duration}}</span>
-            <span>#{{topic.order}}</span>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="topic-right">
-
-        @if(topic.completed){
-
-        <span class="completed">
-          ✓ Completed
-        </span>
-
-        } @else {
-
-        <span class="pending">
-          Start →
-        </span>
-
-        }
-
-      </div>
-
+    <div class="topic-icon">
+      📘
     </div>
+
+    @if(topic.completed){
+
+      <span class="completed">
+        ✓ Completed
+      </span>
+
+    } @else {
+
+      <span class="pending">
+        Start →
+      </span>
+
+    }
+
+  </div>
+
+  <h3>{{ topic.title }}</h3>
+
+  <p>{{ topic.description }}</p>
+
+  <div class="meta">
+    <span>⏱ {{ topic.duration }}</span>
+    <span>#{{ topic.order }}</span>
+  </div>
+
+</div>
 
     }
 

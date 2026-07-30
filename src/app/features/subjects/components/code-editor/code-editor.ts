@@ -1,53 +1,66 @@
-// import { Component, input } from '@angular/core';
 
-// @Component({
-//   selector:'app-code-editor',
-//   standalone:true,
-//   templateUrl:'./code-editor.html',
-//   styleUrl:'./code-editor.scss'
-// })
-// export class CodeEditor{
 
-// examples=input<any[]>([]);
-
-// }
-
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { OutputPanel } from '../output-panel/output-panel';
+import { CodeRunnerService } from '../../../../services/code-runner.service';
+import { CommonModule } from '@angular/common';
+import { MonacoEditorComponent } from '../monaco-editor/monaco-editor';
+
 
 @Component({
   selector: 'app-code-editor',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule, OutputPanel, MonacoEditorComponent],
   templateUrl: './code-editor.html',
   styleUrl: './code-editor.scss'
 })
 export class CodeEditor {
+  runner = inject(CodeRunnerService);
+  editorCode = signal(`console.log("Hello CrackIT");`);
 
-  code = signal(`function greet(){
+  output = signal('');
 
-console.log("Hello Angular");
+  // runCode() {
+
+  //   this.output.set(
+
+  //     this.runner.run(
+
+  //       this.editorCode()
+
+  //     )
+
+  //   );
+
+  // }
+
+  runCode() {
+
+  const result = this.runner.run(
+
+    this.editorCode()
+
+  );
+
+  this.output.set(result);
 
 }
+  resetCode() {
 
-greet();`);
+    this.editorCode.set(`console.log("Hello CrackIT");`);
 
-  reset() {
-
-    this.code.set(`function greet(){
-
-console.log("Hello Angular");
-
-}
-
-greet();`);
+    this.output.set('');
 
   }
 
-  copy() {
+  copyCode() {
 
-    navigator.clipboard.writeText(this.code());
+    navigator.clipboard.writeText(
+
+      this.editorCode()
+
+    );
 
   }
-
 }

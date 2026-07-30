@@ -1,0 +1,49 @@
+.console {
+
+    height: 180px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background: #020617;
+
+    color: #22c55e;
+
+    border-top: 1px solid #1e293b;
+
+}
+
+.header {
+
+    height: 45px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 16px;
+
+    background: #111827;
+
+    color: white;
+
+}
+
+pre {
+
+    flex: 1;
+
+    margin: 0;
+
+    padding: 16px;
+
+    overflow: auto;
+
+    font-family: Consolas, monospace;
+
+    white-space: pre-wrap;
+
+}
