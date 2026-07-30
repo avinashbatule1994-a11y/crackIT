@@ -1,59 +1,95 @@
 <div class="main-container">
-    <div class="subject-header">
-  <h1>Angular</h1>
 
-  <p>
-    Learn Angular from beginner to expert.
-  </p>
-</div>
+  <div class="subject-header">
 
-<!-- Statistics -->
-<div class="stats">
+    <span class="badge">
+      Angular Roadmap
+    </span>
 
-  <div class="card">
-    <h2>{{ topics().length }}</h2>
-    <p>Topics</p>
+    <h1>Master Angular</h1>
+
+    <p>
+      Learn Angular from beginner to expert with theory, coding practice,
+      interview questions and real-world scenarios.
+    </p>
+
   </div>
 
-  <div class="card">
-    <h2>45</h2>
-    <p>Examples</p>
+  <div class="stats">
+
+    <div class="card">
+      <h2>{{ topics().length }}</h2>
+      <p>Topics</p>
+    </div>
+
+    <div class="card">
+      <h2>45</h2>
+      <p>Examples</p>
+    </div>
+
+    <div class="card">
+      <h2>18</h2>
+      <p>Practice</p>
+    </div>
+
+    <div class="card">
+      <h2>8</h2>
+      <p>Interview</p>
+    </div>
+
   </div>
 
-  <div class="card">
-    <h2>18</h2>
-    <p>Practice</p>
-  </div>
+  <div class="topics">
 
-  <div class="card">
-    <h2>8</h2>
-    <p>Interview</p>
-  </div>
+    @for(topic of topics(); track topic.id){
 
-</div>
+    <div
+      class="topic-card"
+      (click)="openTopic(topic)">
 
-<!-- Topics -->
-<div class="topics">
+      <div class="topic-left">
 
-  @for (topic of topics(); track topic.id) {
+        <div class="topic-icon">
+          📘
+        </div>
 
-    <div class="topic-card" (click)="openTopic(topic)">
+        <div>
 
-      <div class="topic-content">
+          <h3>{{topic.title}}</h3>
 
-        <h3>{{ topic.title }}</h3>
+          <p>{{topic.description}}</p>
 
-        <p>{{ topic.description }}</p>
+          <div class="meta">
+            <span>⏱ {{topic.duration}}</span>
+            <span>#{{topic.order}}</span>
+          </div>
+
+        </div>
 
       </div>
 
-      <div class="topic-action">
-        →
+      <div class="topic-right">
+
+        @if(topic.completed){
+
+        <span class="completed">
+          ✓ Completed
+        </span>
+
+        } @else {
+
+        <span class="pending">
+          Start →
+        </span>
+
+        }
+
       </div>
 
     </div>
 
-  }
+    }
 
-</div>
+  </div>
+
 </div>

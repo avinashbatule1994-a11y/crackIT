@@ -12,6 +12,7 @@ import { InterviewList } from '../../components/interview-list/interview-list';
 
 import { ANGULAR_CONTENT } from '../../data/angular-content';
 import { TopicContent } from '../../../../core/models/topic-content-model';
+import { SubjectSidebar } from '../../components/subject-sidebar/subject-sidebar';
 
 type Tab =
   | 'theory'
@@ -33,7 +34,8 @@ type Tab =
     CodeEditor,
     MonacoEditorComponent,
     VideoList,
-    InterviewList
+    InterviewList,
+    // SubjectSidebar
   ],
   templateUrl: './topic-detail.html',
   styleUrl: './topic-detail.scss'

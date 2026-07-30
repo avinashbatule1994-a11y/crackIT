@@ -1,122 +1,110 @@
-
-
 <div class="topic-layout">
 
-    <div class="topic-content">
+  <div class="topic-content">
 
-        <app-page-header [title]="content()?.title ?? ''"
-            subtitle="Master this topic with theory, examples and practice">
+    <app-page-header
+      [title]="content()?.title ?? ''"
+      subtitle="Master this topic with theory, examples and practice">
+    </app-page-header>
 
-        </app-page-header>
+    <div class="tabs">
 
-        <!-- Tabs Here -->
+      <button
+        (click)="selectTab('theory')"
+        [class.active]="selectedTab()=='theory'">
+        Theory
+      </button>
 
-        <div class="tabs">
+      <button
+        (click)="selectTab('examples')"
+        [class.active]="selectedTab()=='examples'">
+        Examples
+      </button>
 
-            <button (click)="selectTab('theory')" [class.active]="selectedTab() === 'theory'">
-                Theory
-            </button>
+      <button
+        (click)="selectTab('practice')"
+        [class.active]="selectedTab()=='practice'">
+        Practice
+      </button>
 
-            <button (click)="selectTab('examples')" [class.active]="selectedTab() === 'examples'">
-                Examples
-            </button>
+      <button
+        (click)="selectTab('videos')"
+        [class.active]="selectedTab()=='videos'">
+        Videos
+      </button>
 
-            <button (click)="selectTab('practice')" [class.active]="selectedTab() === 'practice'">
-                Practice
-            </button>
+      <button
+        (click)="selectTab('resources')"
+        [class.active]="selectedTab()=='resources'">
+        Resources
+      </button>
 
-            <button (click)="selectTab('videos')" [class.active]="selectedTab() === 'videos'">
-                Videos
-            </button>
+      <button
+        (click)="selectTab('interview')"
+        [class.active]="selectedTab()=='interview'">
+        Interview
+      </button>
 
-            <button (click)="selectTab('resources')" [class.active]="selectedTab() === 'resources'">
-                Resources
-            </button>
+      <button
+        (click)="selectTab('scenario')"
+        [class.active]="selectedTab()=='scenario'">
+        Scenario
+      </button>
 
-            <button (click)="selectTab('interview')" [class.active]="selectedTab() === 'interview'">
-                Interview
-            </button>
+      <button
+        (click)="selectTab('mcq')"
+        [class.active]="selectedTab()=='mcq'">
+        MCQ
+      </button>
 
-            <button (click)="selectTab('scenario')" [class.active]="selectedTab() === 'scenario'">
-                Scenario
-            </button>
-
-            <button (click)="selectTab('mcq')" [class.active]="selectedTab() === 'mcq'">
-                MCQ
-            </button>
-
-        </div>
-
-        <!-- Current switch() block stays here -->
-        <div class="content">
-
-
-            <div class="content">
-
-                @switch(selectedTab()) {
-
-                @case('theory') {
-
-                <app-markdown-viewer [markdown]="content()?.theory ?? ''">
-                </app-markdown-viewer>
-
-                }
-
-                @case('examples') {
-
-                <app-code-editor></app-code-editor>
-
-                }
-
-                @case('practice') {
-
-                <app-monaco-editor></app-monaco-editor>
-
-                }
-
-                @case('videos') {
-
-                <app-video-list [videos]="content()?.videos ?? []">
-                </app-video-list>
-
-                }
-
-                @case('resources') {
-
-                <p>Resources Coming Soon...</p>
-
-                }
-
-                @case('interview') {
-
-                <app-interview-list [questions]="content()?.interview ?? []">
-                </app-interview-list>
-
-                }
-
-                @case('scenario') {
-
-                <p>Scenario Questions Coming Soon...</p>
-
-                }
-
-                @case('mcq') {
-
-                <p>MCQ Coming Soon...</p>
-
-                }
-
-                @default {
-
-                <p>No Content Available</p>
-
-                }
-
-                }
-
-            </div>
-
-        </div>
     </div>
+
+    <div class="content">
+
+      @switch(selectedTab()){
+
+        @case('theory'){
+          <app-markdown-viewer
+            [markdown]="content()?.theory ?? ''">
+          </app-markdown-viewer>
+        }
+
+        @case('examples'){
+          <app-code-editor></app-code-editor>
+        }
+
+        @case('practice'){
+          <app-monaco-editor></app-monaco-editor>
+        }
+
+        @case('videos'){
+          <app-video-list
+            [videos]="content()?.videos ?? []">
+          </app-video-list>
+        }
+
+        @case('interview'){
+          <app-interview-list
+            [questions]="content()?.interview ?? []">
+          </app-interview-list>
+        }
+
+        @case('resources'){
+          <p>Resources Coming Soon...</p>
+        }
+
+        @case('scenario'){
+          <p>Scenario Questions Coming Soon...</p>
+        }
+
+        @case('mcq'){
+          <p>MCQs Coming Soon...</p>
+        }
+
+      }
+
+    </div>
+
+  </div>
 
 </div>

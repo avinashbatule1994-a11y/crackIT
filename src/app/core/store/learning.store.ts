@@ -1,14 +1,50 @@
-import { Injectable, signal } from '@angular/core';
+// import { Injectable, signal } from '@angular/core';
+
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class LearningStore {
+
+//   completedTopics = signal<string[]>([]);
+
+//   bookmarks = signal<string[]>([]);
+
+//   recentlyVisited = signal<string[]>([]);
+
+// }
+
+import {
+  Injectable,
+  signal
+} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LearningStore {
 
-  completedTopics = signal<string[]>([]);
-
   bookmarks = signal<string[]>([]);
 
-  recentlyVisited = signal<string[]>([]);
+  recentTopics = signal<string[]>([]);
+
+  completedLessons = signal<string[]>([]);
+
+  addBookmark(slug: string) {
+
+    if (!this.bookmarks().includes(slug)) {
+
+      this.bookmarks.update(items => [...items, slug]);
+
+    }
+
+  }
+
+  removeBookmark(slug: string) {
+
+    this.bookmarks.update(items =>
+      items.filter(item => item !== slug)
+    );
+
+  }
 
 }

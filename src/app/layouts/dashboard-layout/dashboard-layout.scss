@@ -1,14 +1,33 @@
-.layout {
-  display: flex;
-  height: 100vh;
-  background: #070b16;
+// .layout {
+//   display: flex;
+//   height: 100vh;
+//   background: #070b16;
+// }
+
+// .main-content {
+//   flex: 1;
+//   overflow: auto;
+// }
+
+// .page {
+//   padding: 24px;
+// }
+
+.layout{
+  display:flex;
+  min-height:100vh;
+  background:#0f172a;
 }
 
-.main-content {
-  flex: 1;
-  overflow: auto;
+.main-content{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
 }
 
-.page {
-  padding: 24px;
+.page{
+  flex:1;
+  overflow:auto;
+  padding:24px;
 }
