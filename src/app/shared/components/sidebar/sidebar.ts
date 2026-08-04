@@ -1,8 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-// import { UiStateService } from '../../../services/ui-state.service';
-import { MENU_ITEMS } from '../../../core/store/subject-topic.store';
 import { UiStore } from '../../../core/store/ui.store';
+import { MENU_ITEMS } from '../../../core/store/subject-topic.store';
 
 @Component({
   selector: 'app-sidebar',
@@ -17,7 +16,6 @@ import { UiStore } from '../../../core/store/ui.store';
 export class Sidebar {
 
   ui = inject(UiStore);
-  // ui = inject(UiStateService);
 
   // menuItems = [
   //   { icon: '🏠', label: 'Dashboard', route: '/' },

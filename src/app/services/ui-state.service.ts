@@ -16,10 +16,11 @@ export class UiStateService {
   readonly isMobileMenuOpen = signal(false);
 
   readonly sidebarWidth = computed(() =>
-    this.sidebarCollapsed() ? '0' : '260px'
+    this.sidebarCollapsed() ? '0px' : '260px'
   );
 
   toggleSidebar() {
+    console.log("toggeled button clicked")
     this.sidebarCollapsed.update(value => !value);
   }
 

@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { UiStateService } from '../../../services/ui-state.service';
 import { Sidebar } from './sidebar';
 
 describe('Sidebar', () => {
@@ -18,5 +19,14 @@ describe('Sidebar', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should react to the shared sidebar toggle state', () => {
+    const ui = TestBed.inject(UiStateService);
+
+    ui.toggleSidebar();
+    fixture.detectChanges();
+
+    expect(component.ui.sidebarWidth()).toBe('2260px');
   });
 });

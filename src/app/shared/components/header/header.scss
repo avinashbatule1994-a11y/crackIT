@@ -1,44 +1,7 @@
-// header{
 
-// display:flex;
-// justify-content:space-between;
-// align-items:center;
-
-// padding:16px 24px;
-
-// background:#8ea2de;
-
-// // border-radius:16px;
-
-// margin-bottom:24px;
-
-// }
-
-// input{
-
-// width:350px;
-
-// padding:12px;
-
-// border-radius:12px;
-
-// border:none;
-
-// background:#e4e7ea;
-
-// color:white;
-
-// }
-
-// .actions{
-
-// display:flex;
-
-// gap:20px;
-
-// font-size:24px;
-
-// }
+.menu-toggle {
+  display: none;
+}
 
 header{
 
@@ -58,6 +21,8 @@ border-bottom:1px solid #1f2937;
 
 }
 
+
+
 button{
 
 width:42px;
@@ -75,6 +40,7 @@ color:white;
 cursor:pointer;
 
 }
+
 
 input{
 
@@ -94,7 +60,7 @@ color:white;
 
 .right{
 
-display:flex;
+// display:flex;
 
 gap:20px;
 
@@ -104,4 +70,26 @@ color:white;
 
 align-items:center;
 
+}
+
+@media (max-width: 800px) {
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  header {
+    padding: 0 16px;
+  }
+
+  input {
+    width: 100%;
+    margin: 0 12px;
+  }
+
+  .right {
+    display: none;
+  }
 }

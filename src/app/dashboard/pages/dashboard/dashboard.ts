@@ -23,7 +23,9 @@ import { CommonModule } from '@angular/common';
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss'
 })
-export class Dashboard {subjects = signal<Subject[]>(SUBJECTS);
+export class Dashboard {
+  
+  subjects = signal<Subject[]>(SUBJECTS);
 
   search = signal('');
 
