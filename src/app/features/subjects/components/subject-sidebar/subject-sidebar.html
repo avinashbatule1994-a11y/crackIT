@@ -1,4 +1,4 @@
-
+<!-- 
 
 <div class="topic-sidebar">
 
@@ -38,4 +38,27 @@ routerLinkActive="active">
 
 }
 
-</div>
+</div> -->
+
+
+@for(topic of store.topics(); track topic.id){
+
+<a
+  [routerLink]="[
+    '/subjects',
+    store.currentSubject(),
+    topic.slug
+  ]"
+  routerLinkActive="active">
+
+  @if(topic.completed){
+    ✔
+  }@else{
+    ○
+  }
+
+  {{topic.title}}
+
+</a>
+
+}

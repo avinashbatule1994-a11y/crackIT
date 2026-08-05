@@ -5,10 +5,13 @@ import { VideoList } from "../video-list/video-list";
 import { InterviewList } from "../interview-list/interview-list";
 import { McqList } from "../mcq-list/mcq-list";
 import { ScenarioList } from '../scenario-list/scenario-list';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-topic-content',
+  standalone:true,
   imports: [
+    CommonModule,
     MarkdownViewer,
     CodeEditor,
     VideoList,

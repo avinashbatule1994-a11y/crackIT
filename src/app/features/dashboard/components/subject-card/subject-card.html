@@ -1,41 +1,31 @@
-<p-card class="subject-card">
 
-    <div class="header">
+<p-card
+  class="subject-card"
+  [style.background]="subject().background"
+  (click)="openSubject(subject())">
 
-        <i [class]="subject().icon" [style.color]="subject().color">
-        </i>
+  <div>
 
-
-        <span>
-
-            {{subject().title}}
-
-        </span>
-        &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span class="continue-button">
-            <button pButton label="Continue">
-            </button>
-        </span>
-
+    <div>
+      <i  class="icon" [class]="subject().icon"
+         [style.color]="subject().color">
+      </i>
     </div>
 
-    <p>
+    <h2>{{ subject().title }}</h2>
 
-        {{subject().topics}} Topics
-        &nbsp;| &nbsp;
-
-        {{subject().questions}} Questions
-
-    </p>
-    <p>
-
-        {{subject().description}}
-
+    <p class="description">
+      {{ subject().description }}
     </p>
 
+  </div>
 
+  <div class="footer">
 
-    <p-progressBar [value]="subject().progress">
-    </p-progressBar>
+    <span>{{ subject().topics }} Topics</span>
+
+    <i class="pi pi-arrow-right"></i>
+
+  </div>
 
 </p-card>
